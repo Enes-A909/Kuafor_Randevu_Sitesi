@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuaför Paneli</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/kuafor-paneli.css">
+    <link rel="stylesheet" href="css/particles.css">
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <!-- <a href="index.html" class="home-btn">
+        <i class="bi bi-arrow-left"></i>
+    </a> -->
+
+    <a href="#" class="logout-btn" onclick="logout()">
+        <i class="bi bi-box-arrow-right"></i> Çıkış
+    </a>
+
+    <div class="container-main">
+        <h1 class="page-title">
+            <i class="bi bi-shop"></i> Kuaför Paneli
+        </h1>
+
+        <div id="alertContainer"></div>
+
+        <div class="tabs-container">
+            <ul class="nav nav-tabs" id="panelTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                        type="button" role="tab">
+                        <i class="bi bi-person-circle"></i> Profil Bilgileri
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="schedule-tab" data-bs-toggle="tab" data-bs-target="#schedule"
+                        type="button" role="tab">
+                        <i class="bi bi-calendar3"></i> Çalışma Programı
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="appointments-tab" data-bs-toggle="tab" data-bs-target="#appointments"
+                        type="button" role="tab">
+                        <i class="bi bi-calendar-check"></i> Randevular
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="photos-tab" data-bs-toggle="tab" data-bs-target="#photos"
+                        type="button" role="tab">
+                        <i class="bi bi-images"></i> Fotoğraflar
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="panelContent">
+                <!-- PROFIL SEKME -->
+                <div class="tab-pane fade show active" id="profile" role="tabpanel">
+                    <div class="info-card">
+                        <h5>Kuaför İşletme Bilgileri</h5>
+                        <p id="firmaAdiDisplay"></p>
+                        <p id="firma_sahibiDisplay"></p>
+                        <p id="epostaDisplay"></p>
+                        <p id="telefonDisplay"></p>
+                        <p id="adresDisplay"></p>
+                    </div>
+
+                    <form id="profileForm">
+                        <h6 class="form-section-title">
+                            <i class="bi bi-building"></i> Temel Bilgiler
+                        </h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firmaAdi" class="form-label">Salon Adı</label>
+                                    <input type="text" id="firmaAdi" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firma_sahibi" class="form-label">Yetkili Adı</label>
+                                    <input type="text" id="firma_sahibi" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="profileEposta" class="form-label">E-Posta</label>
+                                    <input type="email" id="profileEposta" class="form-control" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="telefon" class="form-label">Telefon</label>
+                                    <input type="tel" id="telefon" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h6 class="form-section-title">
+                            <i class="bi bi-geo-alt"></i> Adres Bilgileri
+                        </h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="il" class="form-label">İl</label>
+                                    <select id="il" class="form-control">
+                                        <option value="">İl Seçiniz</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="ilce" class="form-label">İlçe</label>
+                                    <select id="ilce" class="form-control">
+                                        <option value="">Önce il seçiniz</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="mahalle" class="form-label">Mahalle</label>
+                                    <input type="text" id="mahalle" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="cadde" class="form-label">Cadde</label>
+                                    <input type="text" id="cadde" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="sokak" class="form-label">Sokak</label>
+                                    <input type="text" id="sokak" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="bina_no" class="form-label">Bina No</label>
+                                    <input type="text" id="bina_no" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="daire_no" class="form-label">Daire No</label>
+                                    <input type="text" id="daire_no" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle"></i> Bilgileri Güncelle
+                        </button>
+                    </form>
+                </div>
+
+                <!-- ÇALIŞMA PROGRAMI SEKME -->
+                <div class="tab-pane fade" id="schedule" role="tabpanel">
+                    <p class="text-muted mb-4">Haftanın her günü için çalışma saatleri ve slot ayarlarını yapılandırın.
+                    </p>
+
+                    <form id="scheduleForm">
+                        <table class="schedule-table">
+                            <thead>
+                                <tr>
+                                    <th>Gün</th>
+                                    <th>Kapalı</th>
+                                    <th>Başlangıç Saati</th>
+                                    <th>Bitiş Saati</th>
+                                    <th>Slot (dk)</th>
+                                    <th>Max Randevu</th>
+                                    <th>Buffer (dk)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="scheduleTableBody">
+                            </tbody>
+                        </table>
+
+                        <div style="margin-top: 20px;">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-check-circle"></i> Programı Kaydet
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- FOTOĞRAFLAR SEKME -->
+                <div class="tab-pane fade" id="photos" role="tabpanel">
+                    <h5 class="mb-4"><i class="bi bi-images"></i> Salon Fotoğrafları</h5>
+                    <p class="text-muted mb-4">Salon fotoğraflarını ekleyin. Detay sayfasında slider'da gösterilir. <strong>"Kartta göster"</strong> ile anasayfadaki kartta hangi fotoğrafın görüneceğini seçebilirsiniz.</p>
+                    <div class="photo-upload-section mb-4">
+                        <label class="form-label">Yeni Fotoğraf Ekle</label>
+                        <div class="d-flex flex-wrap gap-2 align-items-end">
+                            <div class="flex-grow-1">
+                                <input type="file" id="photoFile" class="form-control" accept="image/jpeg,image/png,image/webp">
+                            </div>
+                            <button type="button" class="btn btn-primary" id="uploadPhotoBtn">
+                                <i class="bi bi-upload"></i> Yükle
+                            </button>
+                        </div>
+                        <div class="mt-2">
+                            <small class="text-muted">veya URL ile ekle:</small>
+                            <div class="input-group mt-1">
+                                <input type="url" id="photoUrl" class="form-control" placeholder="https://...">
+                                <button type="button" class="btn btn-outline-primary" id="addPhotoUrlBtn">
+                                    <i class="bi bi-link-45deg"></i> Ekle
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="photosList" class="photos-grid">
+                        <div class="text-center text-muted py-4">Fotoğraflar yükleniyor...</div>
+                    </div>
+                </div>
+
+                <!-- RANDEVULAR SEKME -->
+                <div class="tab-pane fade" id="appointments" role="tabpanel">
+                    <div class="appointments-header">
+                        <h5 class="mb-4">
+                            <i class="bi bi-calendar-check"></i> Firmaya Alınan Randevular
+                        </h5>
+                    </div>
+                    <div id="appointmentsList" class="appointments-list">
+                        <div class="text-center text-muted py-5">
+                            <i class="bi bi-hourglass-split" style="font-size: 3rem;"></i>
+                            <p class="mt-3">Randevular yükleniyor...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Particles.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="js/particles-config.js"></script>
+    <script src="js/kuafor-paneli.js"></script>
+</body>
+
+</html>

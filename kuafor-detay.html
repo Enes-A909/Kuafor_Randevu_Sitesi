@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kuaför Detayı - RandevuKuaför</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/kuafor-detay.css">
+    <link rel="stylesheet" href="css/particles.css">
+</head>
+
+<body class="body">
+    <div id="particles-js"></div>
+
+    <!-- Giriş Uyarı Modal -->
+    <div id="loginWarningModal" class="login-warning-modal">
+        <div class="warning-card">
+            <div class="warning-icon">🔐</div>
+            <div class="warning-title">Giriş Yapmanız Gerekli</div>
+            <p class="warning-text">Detayları görmek ve randevu almak için lütfen hesabınıza giriş yapınız veya yeni bir
+                hesap oluşturunuz.</p>
+            <div class="warning-buttons">
+                <button class="btn-back" onclick="window.location.href='index.html'">Geri Dön</button>
+                <button class="btn-login" onclick="window.location.href='login-customer.html'">Giriş Yap</button>
+            </div>
+        </div>
+    </div>
+
+    <nav id="sayfa" class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="index.html">RandevuKuaför</a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div id="loadingSpinner" class="loading-section">
+            <div class="spinner-border"></div>
+            <p>Yükleniyor...</p>
+        </div>
+
+        <div id="errorSection" class="error-section" style="display: none;">
+            <h5>Kuaför bulunamadı</h5>
+            <p id="errorMessage">Lütfen daha sonra tekrar deneyiniz.</p>
+        </div>
+
+        <div id="detailContent" style="display: none;">
+            <div class="detail-container">
+                <a href="index.html" class="home-btn" title="Anasayfaya Dön">
+                    <i class="bi bi-house-fill"></i>
+                </a>
+                <!-- Görsel Slider -->
+                <div class="kuafor-slider-wrap">
+                    <div id="kuaforSlider" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" id="kuaforSliderInner">
+                            <div class="carousel-item active">
+                                <img src="https://placehold.co/600x400/123456/FFF?text=Salon" class="d-block w-100 kuafor-slider-img" alt="Salon görseli">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#kuaforSlider" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#kuaforSlider" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <h2 id="isletmeAdi"></h2>
+                        <div class="rating">
+                            <span id="rating"></span> ⭐
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <strong>Telefon:</strong>
+                    <span id="telefon"></span>
+                </div>
+
+                <div class="info-item">
+                    <strong>Email:</strong>
+                    <span id="email"></span>
+                </div>
+
+                <div class="info-item">
+                    <strong>Adres:</strong>
+                    <span id="adres"></span>
+                </div>
+
+                <div class="info-item">
+                    <strong>Hizmet Kategorileri:</strong>
+                    <span id="calismaHour"></span>
+                </div>
+
+                <div class="info-item">
+                    <strong>Aktif Çalışan Sayısı:</strong>
+                    <span id="enYakinRandevu" class="badge bg-success"></span>
+                </div>
+
+                <div class="info-item">
+                    <strong>Hizmetler:</strong>
+                </div>
+                <div id="hizmetler"></div>
+
+                <div class="info-item mt-4">
+                    <strong>Açıklama:</strong>
+                </div>
+                <p id="aciklama"></p>
+
+                <div class="mt-5">
+                    <button id="randevuButton" class="btn blue-button btn-lg w-100">Randevu Al</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Particles.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="js/particles-config.js"></script>
+    <script src="js/kuafor-detay.js"></script>
+
+</body>
+
+</html>

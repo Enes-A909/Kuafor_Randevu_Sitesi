@@ -1,0 +1,117 @@
+<!-- ==========================
+     1) ANASAYFA (index.html)
+========================== -->
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RandevuKuaför</title>
+    <link rel="stylesheet" href="css\index.css">
+    <link rel="stylesheet" href="css\particles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="body">
+    <div id="particles-js"></div>
+
+    <nav id="sayfa" class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top">
+        <div class="container">
+            <a id="baslik" class="navbar-brand fw-bold" href="index.html">RandevuKuaför</a>
+            <ul class="navbar-nav ms-auto" id="authButtons">
+                <li class="nav-item"><button class="btn btn-outline-light me-2 me-sm-0" data-bs-toggle="modal"
+                        data-bs-target="#login-authModal">Giriş Yap</button></li>
+                <li class="nav-item"><button id="kayitOlButon" class="btn btn-outline-light" data-bs-toggle="modal"
+                        data-bs-target="#signin-authModal">Kayıt Ol</button></li>
+            </ul>
+            <div id="profileSection" style="display: none;" class="profile-dropdown">
+                <div class="profile-avatar" id="profileAvatar" onclick="toggleDropdown()">👤</div>
+                <div class="dropdown-menu-custom" id="profileDropdown">
+                    <div style="padding: 10px 16px; font-size: 0.9rem; color: #666; border-bottom: 1px solid #e0e0e0;">
+                        <span id="userName"></span>
+                    </div>
+                    <button class="dropdown-item-custom" onclick="goToAppointments()">📅 Randevularım</button>
+                    <button class="dropdown-item-custom" onclick="goToProfile()">⚙️ Ayarlar</button>
+                    <button class="dropdown-item-custom" onclick="goToEditProfile()">✏️ Profili Düzenle</button>
+                    <button class="dropdown-item-custom" onclick="logout()">🚪 Çıkış Yap</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Arama Bölümü -->
+    <section class="container my-5">
+        <div id="arama" class="p-3 p-md-4 rounded shadow-sm">
+            <h4 class="mb-4">Randevu Bul</h4>
+            <div class="row g-2 g-md-3">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <select id="il" class="form-select">
+                        <option value="">İl Seç</option>
+                    </select>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <select id="ilce" class="form-select">
+                        <option value="">İlçe Seç</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-4">
+                    <button id="aramaBtn" class="btn blue-button w-100">Kuaförleri Göster</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kuaförler Listesi -->
+    <section class="container my-5">
+        <div class="row g-3" id="kuaforlerKonteyner">
+            <!-- Kartlar buraya dinamik olarak eklenecek -->
+        </div>
+    </section>
+
+    <!-- AUTH MODALS -->
+    <div class="modal fade" id="login-authModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Devam Et</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="mb-3">Hesap türünü seç</p>
+                    <div class="d-grid gap-2">
+                        <a href="login-customer.html" class="btn outline-blue-button">Müşteri</a>
+                        <a href="login-barber.html" class="blue-button btn">Kuaför</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="signin-authModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Devam Et</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="mb-3">Hesap türünü seç</p>
+                    <div class="d-grid gap-2">
+                        <a href="register-customer.html" class="btn outline-blue-button">Müşteri</a>
+                        <a href="register-barber.html" class="btn blue-button">Kuaför</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Particles.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="js/particles-config.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
