@@ -3,8 +3,9 @@ node_modules/
 
 # Environment variables
 .env
-.env.*
 .env.local
+.env.test
+# Note: keep .env.example in repo as a template
 
 # Logs
 logs/
