@@ -1,0 +1,55 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+.env.*
+.env.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+# Yarn
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime / temp
+uploads/
+tmp/
+temp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Coverage
+coverage/
+
+# Build outputs
+dist/
+build/
+
+# Databases (local)
+*.sqlite
+*.sqlite3
+*.db
+
+# Certificates
+*.pem
+
+# Misc
+.env.test
+.DS_Store
+reset.js
+
+# OneDrive (workspace path includes OneDrive; ignore common OneDrive conflicts)
+~$*
